@@ -13,6 +13,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.witheraway.tfcjutefurniture.item.JFTFCItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -20,13 +21,17 @@ import org.slf4j.Logger;
 public class JuteFurnitureTFC
 {
 
-    public static final String MODID = "juteandmore";
+    public static final String MODID = "jftfc";
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public JuteFurnitureTFC()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        JFTFCItems.register(modEventBus);
+
+        CreativeTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -41,8 +46,11 @@ public class JuteFurnitureTFC
     {
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    public static void buildTabContentsModded(BuildCreativeModeTabContentsEvent tabData) {
+
+    }
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
 
