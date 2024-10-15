@@ -19,16 +19,23 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import net.witheraway.tfcjutefurniture.block.JFTFCBlocks;
 import net.witheraway.tfcjutefurniture.item.JFTFCItems;
 
 public final class CreativeTabs {
   public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, JuteFurnitureTFC.MODID);
 
   public static final TFCCreativeTabs.CreativeTabHolder JFTFCITEMS = register("jftfcitems", () -> new ItemStack(JFTFCItems.WICKER.get()), CreativeTabs::fillJFTFCitemsTab);
+  public static final TFCCreativeTabs.CreativeTabHolder JFTFCBLOCKS = register("jftfcblocks", () -> new ItemStack(JFTFCBlocks.WICKER_BLOCK.get()), CreativeTabs::fillJFTFCblocksTab);
 
     public static void fillJFTFCitemsTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output out) {
         accept(out, JFTFCItems.WICKER);
         accept(out, JFTFCItems.WICKER_BUNDLE);
+        accept(out, JFTFCItems.FLAX);
+        JFTFCItems.SEEDS.values().forEach(seed -> accept(out, seed));
+    }
+    public static void fillJFTFCblocksTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output out) {
+        accept(out, JFTFCBlocks.WICKER_BLOCK);
     }
 
     private static TFCCreativeTabs.CreativeTabHolder register(String name, Supplier<ItemStack> icon, CreativeModeTab.DisplayItemsGenerator displayItems)

@@ -1,5 +1,9 @@
 {
   "item.jftfc.wicker" : "Wicker Strips",
   "item.jftfc.wicker_bundle" : "Wicker Bundle",
-  "tfc.creative_tab.jftfcitems" : "JFTFC Items"
+
+  "block.jftfc.wicker_block" : "Wicker",
+
+  "tfc.creative_tab.jftfcitems" : "JFTFC Items",
+  "tfc.creative_tab.jftfcblocks" : "JFTFC Blocks"
 }

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "jftfc:block/wicker/wicker_block"
+      }
+    ]
+  }
+}
