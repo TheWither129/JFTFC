@@ -5,14 +5,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class FlaxPlantBlockEntity extends CropBlockEntity
+public class JFTFCCropBlockEntity extends CropBlockEntity
 {
-    public FlaxPlantBlockEntity(BlockPos pos, BlockState state)
+    public JFTFCCropBlockEntity(BlockPos pos, BlockState state)
     {
-        this(JFTFCBlockEntities.FLAX_PLANT.get(), pos, state);
+        this(JFTFCBlockEntities.CROP.get(), pos, state);
     }
 
-    public FlaxPlantBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state)
+    public JFTFCCropBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state)
     {
         super(type, pos, state);
     }

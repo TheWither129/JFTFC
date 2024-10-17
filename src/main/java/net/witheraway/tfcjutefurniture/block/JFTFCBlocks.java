@@ -29,9 +29,8 @@ public class JFTFCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
     public static final Map<JFTFCCrop, RegistryObject<Block>> CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("crop/" + crop.name(), crop::create));
-
-    public static final RegistryObject<Block> DEAD_FLAX = registerBlock("dead_flax",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+    public static final Map<JFTFCCrop, RegistryObject<Block>> DEAD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("dead_crop/" + crop.name(), crop::createDead));
+    public static final Map<JFTFCCrop, RegistryObject<Block>> WILD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("wild_crop/" + crop.name(), crop::createWild));
 
 
     public static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

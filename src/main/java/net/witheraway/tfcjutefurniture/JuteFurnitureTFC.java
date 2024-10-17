@@ -13,7 +13,10 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.witheraway.tfcjutefurniture.block.JFTFCBlocks;
+import net.witheraway.tfcjutefurniture.blockentities.JFTFCBlockEntities;
+import net.witheraway.tfcjutefurniture.client.JFTFCClientEvents;
 import net.witheraway.tfcjutefurniture.item.JFTFCItems;
 import org.slf4j.Logger;
 
@@ -28,10 +31,15 @@ public class JuteFurnitureTFC
 
     public JuteFurnitureTFC()
     {
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            JFTFCClientEvents.init();
+        }
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         JFTFCItems.register(modEventBus);
         JFTFCBlocks.register(modEventBus);
+        JFTFCBlockEntities.register(modEventBus);
 
         CreativeTabs.register(modEventBus);
 

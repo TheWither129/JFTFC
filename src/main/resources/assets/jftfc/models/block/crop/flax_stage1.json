@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "jftfc:block/crop/flax_stage1"
+  }
+}

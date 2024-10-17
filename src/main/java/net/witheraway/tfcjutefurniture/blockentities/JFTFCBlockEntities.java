@@ -17,7 +17,8 @@ import java.util.stream.Stream;
 public class JFTFCBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, JuteFurnitureTFC.MODID);
 
-    public static final RegistryObject<BlockEntityType<FlaxPlantBlockEntity>> FLAX_PLANT = register("flax_plant", FlaxPlantBlockEntity::new, JFTFCBlocks.CROPS.values().stream());
+
+    public static final RegistryObject<BlockEntityType<JFTFCCropBlockEntity>> CROP = register("crop", JFTFCCropBlockEntity::new, JFTFCBlocks.CROPS.values().stream());
 
 
 

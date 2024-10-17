@@ -6,34 +6,56 @@ import net.dries007.tfc.common.blockentities.TFCBlockEntities;
 import net.dries007.tfc.common.blocks.ExtendedProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-
+import net.witheraway.tfcjutefurniture.blockentities.JFTFCBlockEntities;
 
 
 public enum JFTFCCrop {
-    FLAX(FarmlandBlockEntity.NutrientType.NITROGEN, 8);
+    FLAX(8, FarmlandBlockEntity.NutrientType.NITROGEN);
 
-    private final FarmlandBlockEntity.NutrientType nutrientType;
     private final int stages;
+    private final FarmlandBlockEntity.NutrientType nutrient;
 
-    JFTFCCrop(FarmlandBlockEntity.NutrientType nutrientType, int stages) {
+    JFTFCCrop(int stages, FarmlandBlockEntity.NutrientType nutrient)
+    {
         this.stages = stages;
-        this.nutrientType = nutrientType;
+        this.nutrient = nutrient;
     }
 
-    public Block create() {
+    public Block create()
+    {
         return JFTFCDefaultCropBlock.create(crop(), stages, this);
     }
-
-    static ExtendedProperties crop() {
-        return dead().blockEntity(TFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTick);
+    public Block createDead()
+    {
+        return JFTFCDefaultCropBlock.create(dead(), stages, this);
     }
+    public Block createWild()
+    {
+        return JFTFCDefaultCropBlock.create(wild(), stages, this);
+    }
+
+    public int getStages()
+    {
+        return stages;
+    }
+
+    public FarmlandBlockEntity.NutrientType getNutrient()
+    {
+        return nutrient;
+    }
+
+    private static ExtendedProperties crop()
+    {
+        return dead().blockEntity(JFTFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTick);
+    }
+
     private static ExtendedProperties dead()
     {
         return ExtendedProperties.of().noCollission().randomTicks().strength(0.4F).sound(SoundType.CROP);
     }
-    public FarmlandBlockEntity.NutrientType getNutrient()
+    private static ExtendedProperties wild()
     {
-        return nutrientType;
+        return ExtendedProperties.of().noCollission().randomTicks().strength(0.4F).sound(SoundType.CROP);
     }
 
 }
