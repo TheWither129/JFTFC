@@ -1,14 +1,17 @@
 package net.witheraway.tfcjutefurniture.util;
 
+import net.dries007.tfc.util.DataManager;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.RegisteredDataManager;
 import net.dries007.tfc.util.climate.ClimateRange;
+import net.witheraway.tfcjutefurniture.block.JFTFCCrop;
 
 import java.util.Locale;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class JFTFCClimateRanges {
-    public static final Supplier<ClimateRange> FLAX = register("flax");
+    public static final Map<JFTFCCrop, Supplier<ClimateRange>> CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> register("crop/" + crop.getSerializedName()));
 
     private static RegisteredDataManager.Entry<ClimateRange> register(String name)
     {

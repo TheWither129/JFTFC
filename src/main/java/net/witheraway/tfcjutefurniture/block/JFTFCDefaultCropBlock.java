@@ -22,7 +22,7 @@ public abstract class JFTFCDefaultCropBlock extends JFTFCCropBlock {
 
     public static JFTFCDefaultCropBlock create(ExtendedProperties properties, int stages, JFTFCCrop crop) {
         final IntegerProperty property = TFCBlockStateProperties.getAgeProperty(stages - 1);
-        return new JFTFCDefaultCropBlock(properties, stages - 1, JFTFCBlocks.DEAD_CROPS.get(crop), JFTFCItems.SEEDS.get(crop), crop.getPrimaryNutrient(), JFTFCClimateRanges.FLAX)
+        return new JFTFCDefaultCropBlock(properties, stages - 1, JFTFCBlocks.DEAD_CROPS.get(crop), JFTFCItems.SEEDS.get(crop), crop.getPrimaryNutrient(), JFTFCClimateRanges.CROPS.get(crop))
         {
             @Override
             public IntegerProperty getAgeProperty()

@@ -20,11 +20,6 @@ import java.util.function.Supplier;
 public enum JFTFCCrop {
     FLAX(FarmlandBlockEntity.NutrientType.NITROGEN, 8);
 
-    private static ExtendedProperties doubleCrop()
-    {
-        return dead().blockEntity(TFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTickBottomPartOnly);
-    }
-
     private static ExtendedProperties crop()
     {
         return dead().blockEntity(TFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTick);
