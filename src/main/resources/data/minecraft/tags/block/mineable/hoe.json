@@ -1,0 +1,8 @@
+{
+  "replace" : "false",
+  "values" : [
+          "jftfc:crop/flax",
+          "jftfc:dead_crop/flax",
+          "jftfc:wild_crop/flax"
+    ]
+}

@@ -22,7 +22,7 @@ public abstract class JFTFCDefaultCropBlock extends JFTFCCropBlock {
 
     public static JFTFCDefaultCropBlock create(ExtendedProperties properties, int stages, JFTFCCrop crop) {
         final IntegerProperty property = TFCBlockStateProperties.getAgeProperty(stages - 1);
-        return new JFTFCDefaultCropBlock(properties, stages - 1, JFTFCBlocks.DEAD_CROPS.get(crop), JFTFCItems.SEEDS.get(crop), crop.getNutrient(), JFTFCClimateRanges.FLAX)
+        return new JFTFCDefaultCropBlock(properties, stages - 1, JFTFCBlocks.DEAD_CROPS.get(crop), JFTFCItems.SEEDS.get(crop), crop.getPrimaryNutrient(), JFTFCClimateRanges.FLAX)
         {
             @Override
             public IntegerProperty getAgeProperty()
@@ -31,8 +31,6 @@ public abstract class JFTFCDefaultCropBlock extends JFTFCCropBlock {
             }
         };
     }
-
-    public static final BooleanProperty MATURE = TFCBlockStateProperties.MATURE;
 
     protected JFTFCDefaultCropBlock(ExtendedProperties properties, int maxAge, Supplier<? extends Block> dead, Supplier<? extends Item> seeds, FarmlandBlockEntity.NutrientType primaryNutrient, Supplier<ClimateRange> climateRange)
     {

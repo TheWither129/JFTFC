@@ -36,6 +36,7 @@ public final class CreativeTabs {
     }
     public static void fillJFTFCblocksTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output out) {
         accept(out, JFTFCBlocks.WICKER_BLOCK);
+        JFTFCBlocks.WILD_CROPS.values().forEach(wild_crop ->accept(out, wild_crop));
     }
 
     private static TFCCreativeTabs.CreativeTabHolder register(String name, Supplier<ItemStack> icon, CreativeModeTab.DisplayItemsGenerator displayItems)

@@ -30,9 +30,9 @@ public class JFTFCBlocks {
 
     public static final Map<JFTFCCrop, RegistryObject<Block>> CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("crop/" + crop.name(), crop::create));
     public static final Map<JFTFCCrop, RegistryObject<Block>> DEAD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("dead_crop/" + crop.name(), crop::createDead));
-    public static final Map<JFTFCCrop, RegistryObject<Block>> WILD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("wild_crop/" + crop.name(), crop::createWild));
-
-
+    public static final Map<JFTFCCrop, RegistryObject<Block>> WILD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop ->
+            register("wild_crop/" + crop.name(), crop::createWild)
+    );
     public static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
@@ -42,6 +42,7 @@ public class JFTFCBlocks {
     public static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return JFTFCItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
+
 
     private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> blockSupplier)
     {

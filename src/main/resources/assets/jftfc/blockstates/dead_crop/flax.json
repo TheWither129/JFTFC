@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "mature=false": {
+      "model": "jftfc:block/dead_crop/flax_young"
+    },
+    "mature=true": {
+      "model": "jftfc:block/dead_crop/flax"
+    }
+  }
+}

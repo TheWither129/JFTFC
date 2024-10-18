@@ -4,58 +4,86 @@ import net.dries007.tfc.common.blockentities.CropBlockEntity;
 import net.dries007.tfc.common.blockentities.FarmlandBlockEntity;
 import net.dries007.tfc.common.blockentities.TFCBlockEntities;
 import net.dries007.tfc.common.blocks.ExtendedProperties;
+import net.dries007.tfc.common.blocks.crop.*;
+import net.dries007.tfc.util.climate.ClimateRange;
+import net.dries007.tfc.util.climate.ClimateRanges;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-import net.witheraway.tfcjutefurniture.blockentities.JFTFCBlockEntities;
+import net.minecraft.world.level.material.MapColor;
+
+import java.util.Locale;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 
 public enum JFTFCCrop {
-    FLAX(8, FarmlandBlockEntity.NutrientType.NITROGEN);
+    FLAX(FarmlandBlockEntity.NutrientType.NITROGEN, 8);
 
-    private final int stages;
-    private final FarmlandBlockEntity.NutrientType nutrient;
-
-    JFTFCCrop(int stages, FarmlandBlockEntity.NutrientType nutrient)
+    private static ExtendedProperties doubleCrop()
     {
-        this.stages = stages;
-        this.nutrient = nutrient;
-    }
-
-    public Block create()
-    {
-        return JFTFCDefaultCropBlock.create(crop(), stages, this);
-    }
-    public Block createDead()
-    {
-        return JFTFCDefaultCropBlock.create(dead(), stages, this);
-    }
-    public Block createWild()
-    {
-        return JFTFCDefaultCropBlock.create(wild(), stages, this);
-    }
-
-    public int getStages()
-    {
-        return stages;
-    }
-
-    public FarmlandBlockEntity.NutrientType getNutrient()
-    {
-        return nutrient;
+        return dead().blockEntity(TFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTickBottomPartOnly);
     }
 
     private static ExtendedProperties crop()
     {
-        return dead().blockEntity(JFTFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTick);
+        return dead().blockEntity(TFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTick);
     }
 
     private static ExtendedProperties dead()
     {
-        return ExtendedProperties.of().noCollission().randomTicks().strength(0.4F).sound(SoundType.CROP);
+        return ExtendedProperties.of(MapColor.PLANT).noCollission().randomTicks().strength(0.4F).sound(SoundType.CROP).flammable(60, 30);
     }
-    private static ExtendedProperties wild()
+
+    private final String serializedName;
+    private final FarmlandBlockEntity.NutrientType primaryNutrient;
+    private final Supplier<Block> factory;
+    private final Supplier<Block> deadFactory;
+    private final Supplier<Block> wildFactory;
+
+    JFTFCCrop(FarmlandBlockEntity.NutrientType primaryNutrient, int singleBlockStages)
     {
-        return ExtendedProperties.of().noCollission().randomTicks().strength(0.4F).sound(SoundType.CROP);
+        this(primaryNutrient, self -> JFTFCDefaultCropBlock.create(crop(), singleBlockStages, self), self -> new DeadCropBlock(dead(), self.getClimateRange()), self -> new WildCropBlock(dead().randomTicks()));
+    }
+
+    JFTFCCrop(FarmlandBlockEntity.NutrientType primaryNutrient, Function<JFTFCCrop, Block> factory, Function<JFTFCCrop, Block> deadFactory, Function<JFTFCCrop, Block> wildFactory)
+    {
+        this.serializedName = name().toLowerCase(Locale.ROOT);
+        this.primaryNutrient = primaryNutrient;
+        this.factory = () -> factory.apply(this);
+        this.deadFactory = () -> deadFactory.apply(this);
+        this.wildFactory = () -> wildFactory.apply(this);
+    }
+
+
+    public String getSerializedName()
+    {
+        return serializedName;
+    }
+
+    public Block create()
+    {
+        return factory.get();
+    }
+
+    public Block createDead()
+    {
+        return deadFactory.get();
+    }
+
+    public Block createWild()
+    {
+        return wildFactory.get();
+    }
+
+    public FarmlandBlockEntity.NutrientType getPrimaryNutrient()
+    {
+        return primaryNutrient;
+    }
+
+    public Supplier<ClimateRange> getClimateRange()
+    {
+        return ClimateRanges.CROPS.get(this);
     }
 
 }
