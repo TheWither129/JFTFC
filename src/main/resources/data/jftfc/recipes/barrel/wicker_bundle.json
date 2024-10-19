@@ -1,0 +1,15 @@
+{
+  "type": "tfc:barrel_sealed",
+  "input_item": {
+    "item": "jftfc:wicker",
+    "amount": 4
+  },
+  "input_fluid": {
+    "ingredient": "jftfc:linseed_oil",
+    "amount": 200
+  },
+  "output_item": {
+    "item": "jftfc:wicker_bundle"
+  },
+  "duration": 8000
+}

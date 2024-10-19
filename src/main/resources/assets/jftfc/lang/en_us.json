@@ -1,8 +1,16 @@
 {
   "item.jftfc.wicker" : "Wicker Strips",
   "item.jftfc.wicker_bundle" : "Wicker Bundle",
+  "item.jftfc.seeds.flax" : "Flax Seeds",
+  "item.jftfc.flax" : "Flax",
+  "item.jftfc.bucket.linseed_oil" : "Linseed Oil Bucket",
 
   "block.jftfc.wicker_block" : "Wicker",
+  "block.jftfc.crop.flax" : "Flax",
+  "block.jftfc.dead_crop.flax" : "Dead Flax",
+  "block.jftfc.wild_crop.flax" : "Wild Flax",
+
+  "fluid.jftfc.linseed_oil" : "Linseed Oil",
 
   "tfc.creative_tab.jftfcitems" : "JFTFC Items",
   "tfc.creative_tab.jftfcblocks" : "JFTFC Blocks"

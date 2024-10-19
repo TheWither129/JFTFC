@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.witheraway.tfcjutefurniture.block.JFTFCBlocks;
+import net.witheraway.tfcjutefurniture.block.JFTFCFluids;
 import net.witheraway.tfcjutefurniture.blockentities.JFTFCBlockEntities;
 import net.witheraway.tfcjutefurniture.client.JFTFCClientEvents;
 import net.witheraway.tfcjutefurniture.item.JFTFCItems;
@@ -40,6 +41,8 @@ public class JuteFurnitureTFC
         JFTFCItems.register(modEventBus);
         JFTFCBlocks.register(modEventBus);
         JFTFCBlockEntities.register(modEventBus);
+        JFTFCFluids.FLUIDS.register(modEventBus);
+        JFTFCFluids.FLUID_TYPES.register(modEventBus);
 
         CreativeTabs.register(modEventBus);
 

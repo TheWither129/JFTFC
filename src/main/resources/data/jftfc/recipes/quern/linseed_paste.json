@@ -1,0 +1,9 @@
+{
+  "type": "tfc:quern",
+  "ingredient": {
+    "item": "jftfc:seed/flax"
+  },
+  "result": {
+    "item": "jftfc:linseed_paste"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type" : "minecraft:block",
+  "pools" : [
+    {
+      "name" : "loot_pool",
+      "rolls" : 1,
+      "entries" : [
+        {
+          "type" : "minecraft:item",
+          "name" : "jftfc:seeds/flax",
+          "conditions" : [
+            {
+              "condition" : "minecraft:block_state_property",
+              "block" : "jftfc:dead_crop/flax"
+            }
+          ]
+        }
+      ],
+      "conditions" : [
+        {
+          "condition" : "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

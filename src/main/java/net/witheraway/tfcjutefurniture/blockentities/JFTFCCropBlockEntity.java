@@ -1,6 +1,5 @@
 package net.witheraway.tfcjutefurniture.blockentities;
 
-import net.dries007.tfc.common.blockentities.TFCBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -13,9 +12,6 @@ import net.dries007.tfc.common.blocks.crop.ICropBlock;
 import net.dries007.tfc.util.calendar.Calendars;
 import net.dries007.tfc.util.calendar.ICalendarTickable;
 import net.dries007.tfc.common.blockentities.CropBlockEntity;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class JFTFCCropBlockEntity extends CropBlockEntity implements ICalendarTickable
 {

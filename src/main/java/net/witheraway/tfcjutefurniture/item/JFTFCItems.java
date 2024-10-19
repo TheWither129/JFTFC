@@ -3,10 +3,7 @@ package net.witheraway.tfcjutefurniture.item;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.SelfTests;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,6 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.witheraway.tfcjutefurniture.JuteFurnitureTFC;
 import net.witheraway.tfcjutefurniture.block.JFTFCBlocks;
 import net.witheraway.tfcjutefurniture.block.JFTFCCrop;
+import net.witheraway.tfcjutefurniture.block.JFTFCFluidID;
 
 import java.util.Locale;
 import java.util.Map;
@@ -39,6 +37,11 @@ public class JFTFCItems {
     public static final Map<JFTFCCrop, RegistryObject<Item>> SEEDS = Helpers.mapOfKeys(JFTFCCrop.class, crop ->
             register("seeds/" + crop.name(), () -> new ItemNameBlockItem(JFTFCBlocks.CROPS.get(crop).get(), new Item.Properties()))
     );
+    public static final Map<JFTFCFluidID, RegistryObject<BucketItem>> FLUID_BUCKETS = JFTFCFluidID.mapOf(fluid ->
+            register("bucket/" + fluid.name(), () -> new BucketItem(fluid.fluid(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)))
+    );
+
+
 
     private static RegistryObject<Item> register(String name)
     {

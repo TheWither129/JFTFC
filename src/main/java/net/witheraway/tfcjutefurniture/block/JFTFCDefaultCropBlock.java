@@ -11,8 +11,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.witheraway.tfcjutefurniture.blockentities.JFTFCCropBlockEntity;
 import net.witheraway.tfcjutefurniture.item.JFTFCItems;
 import net.witheraway.tfcjutefurniture.util.JFTFCClimateRanges;
 
@@ -28,6 +28,11 @@ public abstract class JFTFCDefaultCropBlock extends JFTFCCropBlock {
             public IntegerProperty getAgeProperty()
             {
                 return property;
+            }
+
+            @Override
+            protected void postGrowthTick(Level level, BlockPos pos, BlockState state, JFTFCCropBlockEntity crop) {
+
             }
         };
     }

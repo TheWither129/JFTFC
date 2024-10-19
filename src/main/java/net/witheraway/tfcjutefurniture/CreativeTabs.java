@@ -33,6 +33,7 @@ public final class CreativeTabs {
         accept(out, JFTFCItems.WICKER_BUNDLE);
         accept(out, JFTFCItems.FLAX);
         JFTFCItems.SEEDS.values().forEach(seed -> accept(out, seed));
+        JFTFCItems.FLUID_BUCKETS.values().forEach(bucket -> accept(out, bucket));
     }
     public static void fillJFTFCblocksTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output out) {
         accept(out, JFTFCBlocks.WICKER_BLOCK);

@@ -1,19 +1,11 @@
 package net.witheraway.tfcjutefurniture.block;
 
-import net.dries007.tfc.common.TFCTags;
-import net.dries007.tfc.common.blockentities.CropBlockEntity;
 import net.dries007.tfc.common.blockentities.FarmlandBlockEntity;
 import net.dries007.tfc.common.blockentities.IFarmland;
-import net.dries007.tfc.common.blocks.EntityBlockExtension;
 import net.dries007.tfc.common.blocks.ExtendedProperties;
-import net.dries007.tfc.common.blocks.IForgeBlockExtension;
-import net.dries007.tfc.common.blocks.TFCBlockStateProperties;
 import net.dries007.tfc.common.blocks.crop.CropBlock;
 import net.dries007.tfc.common.blocks.crop.CropHelpers;
-import net.dries007.tfc.common.blocks.crop.ICropBlock;
 import net.dries007.tfc.common.blocks.soil.FarmlandBlock;
-import net.dries007.tfc.common.blocks.soil.HoeOverlayBlock;
-import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.calendar.Calendars;
 import net.dries007.tfc.util.climate.ClimateRange;
 import net.minecraft.core.BlockPos;
@@ -22,33 +14,26 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.witheraway.tfcjutefurniture.blockentities.JFTFCCropBlockEntity;
 
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public abstract class JFTFCCropBlock extends CropBlock implements HoeOverlayBlock, ICropBlock, IForgeBlockExtension, EntityBlockExtension {
+public abstract class JFTFCCropBlock extends CropBlock {
 
     protected final FarmlandBlockEntity.NutrientType primaryNutrient;
     protected final Supplier<? extends Block> dead;
     protected final Supplier<? extends Item> seeds;
     protected final Supplier<ClimateRange> climateRange;
     protected final int maxAge;
-
-
-
-
     private final ExtendedProperties extendedProperties;
 
     protected JFTFCCropBlock(ExtendedProperties properties, int maxAge, Supplier<? extends Block> dead, Supplier<? extends Item> seeds, FarmlandBlockEntity.NutrientType primaryNutrient, Supplier<ClimateRange> climateRange)
@@ -57,7 +42,6 @@ public abstract class JFTFCCropBlock extends CropBlock implements HoeOverlayBloc
 
         this.extendedProperties = properties;
         this.maxAge = maxAge;
-
         this.dead = dead;
         this.seeds = seeds;
         this.primaryNutrient = primaryNutrient;
@@ -107,7 +91,7 @@ public abstract class JFTFCCropBlock extends CropBlock implements HoeOverlayBloc
         {
             if (canSurvive(state, level, pos))
             {
-                if (level.getBlockEntity(pos) instanceof CropBlockEntity crop)
+                if (level.getBlockEntity(pos) instanceof JFTFCCropBlockEntity crop)
                 {
                     growthTick(level, pos, state, crop);
                 }
@@ -142,7 +126,7 @@ public abstract class JFTFCCropBlock extends CropBlock implements HoeOverlayBloc
             farmland.addTooltipInfo((List<Component>) text);
         }
 
-        if (level.getBlockEntity(pos) instanceof CropBlockEntity crop)
+        if (level.getBlockEntity(pos) instanceof JFTFCCropBlockEntity crop)
         {
             if (isDebug)
             {
@@ -155,11 +139,8 @@ public abstract class JFTFCCropBlock extends CropBlock implements HoeOverlayBloc
         }
     }
 
-
-    @Override
-    public void growthTick(Level level, BlockPos pos, BlockState state, CropBlockEntity crop)
+    public void growthTick(Level level, BlockPos pos, BlockState state, JFTFCCropBlockEntity crop)
     {
-        // Only perform growth ticks on server.
         if (!level.isClientSide() && CropHelpers.growthTick(level, pos, state, crop))
         {
             postGrowthTick(level, pos, state, crop);
@@ -178,7 +159,6 @@ public abstract class JFTFCCropBlock extends CropBlock implements HoeOverlayBloc
         return primaryNutrient;
     }
 
-    protected abstract void postGrowthTick(Level level, BlockPos pos, BlockState state, CropBlockEntity crop);
-
+    protected abstract void postGrowthTick(Level level, BlockPos pos, BlockState state, JFTFCCropBlockEntity crop);
 
 }

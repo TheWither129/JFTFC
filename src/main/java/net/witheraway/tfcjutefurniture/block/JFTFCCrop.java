@@ -1,16 +1,15 @@
 package net.witheraway.tfcjutefurniture.block;
 
-import net.dries007.tfc.common.blockentities.CropBlockEntity;
 import net.dries007.tfc.common.blockentities.FarmlandBlockEntity;
-import net.dries007.tfc.common.blockentities.TFCBlockEntities;
 import net.dries007.tfc.common.blocks.ExtendedProperties;
 import net.dries007.tfc.common.blocks.crop.*;
 import net.dries007.tfc.util.climate.ClimateRange;
-import net.dries007.tfc.util.climate.ClimateRanges;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
+import net.witheraway.tfcjutefurniture.blockentities.JFTFCBlockEntities;
+import net.witheraway.tfcjutefurniture.blockentities.JFTFCCropBlockEntity;
+import net.witheraway.tfcjutefurniture.util.JFTFCClimateRanges;
 
 import java.util.Locale;
 import java.util.function.Function;
@@ -22,7 +21,7 @@ public enum JFTFCCrop {
 
     private static ExtendedProperties crop()
     {
-        return dead().blockEntity(TFCBlockEntities.CROP).serverTicks(CropBlockEntity::serverTick);
+        return dead().blockEntity(JFTFCBlockEntities.CROP).serverTicks(JFTFCCropBlockEntity::serverTick);
     }
 
     private static ExtendedProperties dead()
@@ -78,7 +77,7 @@ public enum JFTFCCrop {
 
     public Supplier<ClimateRange> getClimateRange()
     {
-        return ClimateRanges.CROPS.get(this);
+        return JFTFCClimateRanges.CROPS.get(this);
     }
 
 }

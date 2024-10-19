@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -33,6 +34,10 @@ public class JFTFCBlocks {
     public static final Map<JFTFCCrop, RegistryObject<Block>> WILD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop ->
             register("wild_crop/" + crop.name(), crop::createWild)
     );
+
+    public static final RegistryObject<LiquidBlock> LINSEED_OIL = registerNoItem("fluid/linseed_oil", () -> new LiquidBlock(JFTFCFluids.LINSEED_OIL.source(), BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
+
+
     public static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
