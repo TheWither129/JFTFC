@@ -16,7 +16,7 @@ public record JFTFCFluidID(String name, OptionalInt color, Supplier<? extends Fl
 
     private static final Map<Enum<?>, JFTFCFluidID> IDENTITY = new HashMap<>();
     private static final List<JFTFCFluidID> VALUES = Stream.of(
-                    Stream.of(LINSEED_OIL)
+                    Stream.of(LINSEED_OIL, TAR)
             )
             .flatMap(Function.identity())
             .toList();

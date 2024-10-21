@@ -43,6 +43,7 @@ public class JFTFCBlocks {
     );
 
     public static final RegistryObject<LiquidBlock> LINSEED_OIL = registerNoItem("fluid/linseed_oil", () -> new LiquidBlock(JFTFCFluids.LINSEED_OIL.source(), BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
+    public static final RegistryObject<LiquidBlock> TAR = registerNoItem("fluid/tar", () -> new LiquidBlock(JFTFCFluids.TAR.source(), BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
 
 
     public static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

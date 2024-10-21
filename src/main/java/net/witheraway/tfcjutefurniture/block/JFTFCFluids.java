@@ -40,12 +40,12 @@ public class JFTFCFluids {
             MixingFluid.Flowing::new
     );
     public static final FluidRegistryObject<ForgeFlowingFluid> TAR = register(
-            "linseed_oil",
+            "tar",
             properties -> properties
                     .block(JFTFCBlocks.TAR)
                     .bucket(JFTFCItems.FLUID_BUCKETS.get(JFTFCFluidID.TAR)),
-            waterLike()
-                    .descriptionId("fluid.jftfc.linseed_oil"),
+            tar()
+                    .descriptionId("fluid.jftfc.tar"),
             new FluidTypeClientProperties(ALPHA_MASK | 0x201404, WATER_STILL, WATER_FLOW, WATER_OVERLAY, UNDERWATER_LOCATION),
             MixingFluid.Source::new,
             MixingFluid.Flowing::new
@@ -64,6 +64,23 @@ public class JFTFCFluids {
                 .canPushEntity(true)
                 .canSwim(true)
                 .supportsBoating(true);
+    }
+    private static FluidType.Properties tar()
+    {
+        return FluidType.Properties.create()
+                .adjacentPathType(BlockPathTypes.LAVA)
+                .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
+                .lightLevel(0)
+                .density(6000)
+                .viscosity(9000)
+                .canConvertToSource(true)
+                .canDrown(true)
+                .canExtinguish(false)
+                .canHydrate(false)
+                .canPushEntity(false)
+                .canSwim(false)
+                .supportsBoating(false);
     }
 
     private static <F extends FlowingFluid> FluidRegistryObject<F> register(String name, Consumer<ForgeFlowingFluid.Properties> builder, FluidType.Properties typeProperties, FluidTypeClientProperties clientProperties, Function<ForgeFlowingFluid.Properties, F> sourceFactory, Function<ForgeFlowingFluid.Properties, F> flowingFactory)

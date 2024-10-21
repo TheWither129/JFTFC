@@ -1,6 +1,7 @@
 {
   "replace" : "false",
   "values" : [
-    "jftfc:linseed_oil"
+    "jftfc:linseed_oil",
+    "jftfc:tar"
   ]
 }
