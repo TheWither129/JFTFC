@@ -2,16 +2,16 @@
   "type": "tfc:barrel_sealed",
   "input_item": {
     "ingredient": {
-      "item" : "tfc:stick_bundle"
+      "item" : "tfc:stick_bunch"
     }
   },
   "input_fluid": {
     "ingredient": "minecraft:water",
-    "amount": 200
+    "amount": 100
   },
   "output_item": {
     "item": "jftfc:wicker",
-    "count" : 4
+    "count" : 2
   },
   "duration": 1000
 }

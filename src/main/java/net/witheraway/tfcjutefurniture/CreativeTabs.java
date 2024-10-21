@@ -33,10 +33,14 @@ public final class CreativeTabs {
         accept(out, JFTFCItems.WICKER_BUNDLE);
         accept(out, JFTFCItems.FLAX);
         JFTFCItems.SEEDS.values().forEach(seed -> accept(out, seed));
+        accept(out, JFTFCItems.LINSEED_PASTE);
         JFTFCItems.FLUID_BUCKETS.values().forEach(bucket -> accept(out, bucket));
     }
     public static void fillJFTFCblocksTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output out) {
         accept(out, JFTFCBlocks.WICKER_BLOCK);
+        accept(out, JFTFCBlocks.COREWOOD_LOGS);
+        accept(out, JFTFCBlocks.FINEWOOD_PLANKS);
+        accept(out, JFTFCBlocks.DARKWOOD_PLANKS);
         JFTFCBlocks.WILD_CROPS.values().forEach(wild_crop ->accept(out, wild_crop));
     }
 

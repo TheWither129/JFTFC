@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "jftfc:block/corewood_logs",
+    "end" : "jftfc:block/corewood_logs_end"
+  }
+}

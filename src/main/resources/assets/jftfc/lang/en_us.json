@@ -4,8 +4,12 @@
   "item.jftfc.seeds.flax" : "Flax Seeds",
   "item.jftfc.flax" : "Flax",
   "item.jftfc.bucket.linseed_oil" : "Linseed Oil Bucket",
+  "item.jftfc.linseed_paste" : "Linseed Paste",
 
   "block.jftfc.wicker_block" : "Wicker",
+  "block.jftfc.corewood_logs" : "Corewood Logs",
+  "block.jftfc.finewood_planks" : "Finewood Planks",
+  "block.jftfc.darkwood_planks" : "Darkwood Planks",
   "block.jftfc.crop.flax" : "Flax",
   "block.jftfc.dead_crop.flax" : "Dead Flax",
   "block.jftfc.wild_crop.flax" : "Wild Flax",
@@ -13,5 +17,10 @@
   "fluid.jftfc.linseed_oil" : "Linseed Oil",
 
   "tfc.creative_tab.jftfcitems" : "JFTFC Items",
-  "tfc.creative_tab.jftfcblocks" : "JFTFC Blocks"
+  "tfc.creative_tab.jftfcblocks" : "JFTFC Blocks",
+
+  "tfc.recipe.barrel.jftfc.barrel.linseed_oil" : "Linseed Oil",
+  "tfc.recipe.barrel.jftfc.barrel.wicker_strips" : "Wicker Strips",
+  "tfc.recipe.barrel.jftfc.barrel.wicker_strips_2" : "Wicker Strips",
+  "tfc.recipe.barrel.jftfc.barrel.wicker_bundle" : "Wicker Bundle"
 }

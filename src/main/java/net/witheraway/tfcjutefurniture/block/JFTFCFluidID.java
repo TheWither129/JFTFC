@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 public record JFTFCFluidID(String name, OptionalInt color, Supplier<? extends Fluid> fluid)
 {
     public static final JFTFCFluidID LINSEED_OIL = new JFTFCFluidID("linseed_oil", OptionalInt.empty(), JFTFCFluids.LINSEED_OIL.source());
+    public static final JFTFCFluidID TAR = new JFTFCFluidID("tar", OptionalInt.empty(), JFTFCFluids.TAR.source());
 
     private static final Map<Enum<?>, JFTFCFluidID> IDENTITY = new HashMap<>();
     private static final List<JFTFCFluidID> VALUES = Stream.of(

@@ -1,7 +1,9 @@
 {
   "type": "tfc:barrel_sealed",
   "input_item": {
-    "ingredient": "jftfc:linseed_paste"
+    "ingredient": {
+      "item" : "jftfc:linseed_paste"
+    }
   },
   "input_fluid": {
     "ingredient": "minecraft:water",
@@ -11,5 +13,5 @@
     "fluid": "jftfc:linseed_oil",
     "amount": 200
   },
-  "duration": 8000
+  "duration": 1000
 }

@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -28,6 +29,12 @@ public class JFTFCBlocks {
 
     public static final RegistryObject<Block> WICKER_BLOCK = registerBlock("wicker_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<Block> FINEWOOD_PLANKS = registerBlock("finewood_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)));
+    public static final RegistryObject<Block> DARKWOOD_PLANKS = registerBlock("darkwood_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<Block> COREWOOD_LOGS = registerBlock("corewood_logs",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)));
 
     public static final Map<JFTFCCrop, RegistryObject<Block>> CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("crop/" + crop.name(), crop::create));
     public static final Map<JFTFCCrop, RegistryObject<Block>> DEAD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("dead_crop/" + crop.name(), crop::createDead));

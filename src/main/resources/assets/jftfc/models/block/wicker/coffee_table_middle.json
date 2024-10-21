@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"4": "jftfc:block/wicker",
+		"particle": "jftfc:block/wicker"
+	},
+	"elements": [
+		{
+			"from": [0, 9, 0],
+			"to": [16, 11, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -5, 0]},
+			"faces": {
+				"north": {"uv": [0, 5, 16, 7], "texture": "#4"},
+				"east": {"uv": [0, 5, 16, 7], "texture": "#4"},
+				"south": {"uv": [0, 5, 16, 7], "texture": "#4"},
+				"west": {"uv": [0, 5, 16, 7], "texture": "#4"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#4"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#4"}
+			}
+		}
+	]
+}

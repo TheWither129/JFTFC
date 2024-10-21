@@ -39,6 +39,17 @@ public class JFTFCFluids {
             MixingFluid.Source::new,
             MixingFluid.Flowing::new
     );
+    public static final FluidRegistryObject<ForgeFlowingFluid> TAR = register(
+            "linseed_oil",
+            properties -> properties
+                    .block(JFTFCBlocks.TAR)
+                    .bucket(JFTFCItems.FLUID_BUCKETS.get(JFTFCFluidID.TAR)),
+            waterLike()
+                    .descriptionId("fluid.jftfc.linseed_oil"),
+            new FluidTypeClientProperties(ALPHA_MASK | 0x201404, WATER_STILL, WATER_FLOW, WATER_OVERLAY, UNDERWATER_LOCATION),
+            MixingFluid.Source::new,
+            MixingFluid.Flowing::new
+    );
 
     private static FluidType.Properties waterLike()
     {

@@ -1,0 +1,7 @@
+{
+  "variants" : {
+    "axis=y" : {"model" : "jftfc:block/corewood_logs"},
+    "axis=z" : {"model" : "jftfc:block/corewood_logs", "x" : -90},
+    "axis=x" : {"model" : "jftfc:block/corewood_logs","x" : -90, "y" : -90}
+  }
+}
