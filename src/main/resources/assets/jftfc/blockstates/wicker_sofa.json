@@ -1,0 +1,19 @@
+{
+  "variants" : {
+    "facing=north" : {
+      "model" : "jftfc:block/jute_sofa/jute_sofa_base"
+    },
+    "facing=south" : {
+      "model" : "jftfc:block/jute_sofa/jute_sofa_base",
+      "y" : 180
+    },
+    "facing=east" : {
+      "model" : "jftfc:block/jute_sofa/jute_sofa_base",
+      "y" : 90
+    },
+    "facing=west" : {
+      "model" : "jftfc:block/jute_sofa/jute_sofa_base",
+      "y" : -90
+    }
+  }
+}

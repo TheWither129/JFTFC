@@ -26,7 +26,7 @@ public final class CreativeTabs {
   public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, JuteFurnitureTFC.MODID);
 
   public static final TFCCreativeTabs.CreativeTabHolder JFTFCITEMS = register("jftfcitems", () -> new ItemStack(JFTFCItems.WICKER.get()), CreativeTabs::fillJFTFCitemsTab);
-  public static final TFCCreativeTabs.CreativeTabHolder JFTFCBLOCKS = register("jftfcblocks", () -> new ItemStack(JFTFCBlocks.WICKER_BLOCK.get()), CreativeTabs::fillJFTFCblocksTab);
+  public static final TFCCreativeTabs.CreativeTabHolder JFTFCBLOCKS = register("jftfcblocks", () -> new ItemStack(JFTFCBlocks.WICKER_SOFA.get()), CreativeTabs::fillJFTFCblocksTab);
 
     public static void fillJFTFCitemsTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output out) {
         accept(out, JFTFCItems.WICKER);
@@ -41,6 +41,8 @@ public final class CreativeTabs {
         accept(out, JFTFCBlocks.COREWOOD_LOGS);
         accept(out, JFTFCBlocks.FINEWOOD_PLANKS);
         accept(out, JFTFCBlocks.DARKWOOD_PLANKS);
+        accept(out, JFTFCBlocks.WICKER_OTTOMAN);
+        accept(out, JFTFCBlocks.WICKER_SOFA);
         JFTFCBlocks.WILD_CROPS.values().forEach(wild_crop ->accept(out, wild_crop));
     }
 

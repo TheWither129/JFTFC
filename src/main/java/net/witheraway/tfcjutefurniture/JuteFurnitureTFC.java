@@ -1,6 +1,9 @@
 package net.witheraway.tfcjutefurniture;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.Direction;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -18,6 +21,7 @@ import net.witheraway.tfcjutefurniture.block.JFTFCBlocks;
 import net.witheraway.tfcjutefurniture.block.JFTFCFluids;
 import net.witheraway.tfcjutefurniture.blockentities.JFTFCBlockEntities;
 import net.witheraway.tfcjutefurniture.client.JFTFCClientEvents;
+import net.witheraway.tfcjutefurniture.entity.JFTFCEntities;
 import net.witheraway.tfcjutefurniture.item.JFTFCItems;
 import org.slf4j.Logger;
 
@@ -41,6 +45,7 @@ public class JuteFurnitureTFC
         JFTFCItems.register(modEventBus);
         JFTFCBlocks.register(modEventBus);
         JFTFCBlockEntities.register(modEventBus);
+        JFTFCEntities.register(modEventBus);
         JFTFCFluids.FLUIDS.register(modEventBus);
         JFTFCFluids.FLUID_TYPES.register(modEventBus);
 
@@ -65,6 +70,20 @@ public class JuteFurnitureTFC
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
+    }
+    public static VoxelShape calculateShapes(Direction to, VoxelShape shape) {
+        VoxelShape[] buffer = new VoxelShape[]{shape, Shapes.empty()};
+        int times = (to.get2DDataValue() - Direction.NORTH.get2DDataValue() + 4) % 4;
+
+        for(int i = 0; i < times; ++i) {
+            buffer[0].forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> {
+                buffer[1] = Shapes.or(buffer[1], Shapes.box(1.0 - maxZ, minY, minX, 1.0 - minZ, maxY, maxX));
+            });
+            buffer[0] = buffer[1];
+            buffer[1] = Shapes.empty();
+        }
+
+        return buffer[0];
     }
 
     @SubscribeEvent

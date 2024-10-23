@@ -10,12 +10,15 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.witheraway.tfcjutefurniture.block.JFTFCBlocks;
+import net.witheraway.tfcjutefurniture.entity.JFTFCEntities;
 
 import java.util.function.Predicate;
 
@@ -29,6 +32,7 @@ public final class JFTFCClientEvents {
         bus.addListener(JFTFCClientEvents::registerColorHandlerBlocks);
         bus.addListener(JFTFCClientEvents::registerColorHandlerItems);
         bus.addListener(JFTFCClientEvents::registerClientReloadListners);
+        bus.addListener(JFTFCClientEvents::registerRenderers);
     }
 
 
@@ -66,6 +70,10 @@ public final class JFTFCClientEvents {
         final ItemColor seasonalFoliageColor = (stack, tintIndex) -> TFCColors.getFoliageColor(null, tintIndex);
 
         JFTFCBlocks.WILD_CROPS.forEach((key, value) -> event.register(grassColor, value.get().asItem()));
+    }
+
+    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(JFTFCEntities.SEAT_ENTITY.get(), NoopRenderer::new);
     }
 
     public static void registerClientReloadListners(RegisterClientReloadListenersEvent event) {

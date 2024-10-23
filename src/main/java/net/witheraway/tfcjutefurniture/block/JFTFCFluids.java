@@ -72,13 +72,13 @@ public class JFTFCFluids {
                 .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
                 .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
                 .lightLevel(0)
-                .density(6000)
-                .viscosity(9000)
+                .density(100000)
+                .viscosity(30000000)
                 .canConvertToSource(true)
                 .canDrown(true)
                 .canExtinguish(false)
                 .canHydrate(false)
-                .canPushEntity(false)
+                .canPushEntity(true)
                 .canSwim(false)
                 .supportsBoating(false);
     }
