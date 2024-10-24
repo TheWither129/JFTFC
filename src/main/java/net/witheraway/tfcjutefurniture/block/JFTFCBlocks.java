@@ -40,9 +40,9 @@ public class JFTFCBlocks {
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)));
 
     public static final RegistryObject<Block> WICKER_OTTOMAN = registerBlock("wicker_ottoman",
-            () -> new Ottoman(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+            () -> new Ottoman(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final RegistryObject<Block> WICKER_SOFA = registerBlock("wicker_sofa",
-            () -> new Sofa(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+            () -> new Sofa(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 
     public static final Map<JFTFCCrop, RegistryObject<Block>> CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("crop/" + crop.name(), crop::create));
     public static final Map<JFTFCCrop, RegistryObject<Block>> DEAD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("dead_crop/" + crop.name(), crop::createDead));

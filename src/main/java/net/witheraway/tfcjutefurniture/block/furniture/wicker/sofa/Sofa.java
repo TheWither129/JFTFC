@@ -38,9 +38,9 @@ public class Sofa extends SeatBlock implements SimpleWaterloggedBlock {
     public static final VoxelShape BACK = Block.box(0.0, 0.0, 15.0, 16.0, 16.0, 16.0);
     public static final VoxelShape BACK_I_CORNER = Block.box(0.0, 0.0, 0.0, 1.0, 16.0, 16.0);
     public static final VoxelShape BACK_CUSHION = Block.box(1.0, 0.0, 11.0, 15.0, 16.0, 15.0);
-    public static final VoxelShape BACK_CUSHION_I_CORNER = Block.box(1.0, 0.0, 11.0, 5.0, 16.0, 11.0);
-    public static final VoxelShape BACK_CUSHION_O_CORNER = Block.box(11.0, 0.0, 0.0, 16.0, 16.0, 5.0);
-    public static final VoxelShape BACK_CUSHION_MIDDLE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 15.0);
+    public static final VoxelShape BACK_CUSHION_I_CORNER = Block.box(1.0, 0.0, 0.0, 5.0, 16.0, 11.0);
+    public static final VoxelShape BACK_CUSHION_O_CORNER = Block.box(0.0, 0.0, 11.0, 5.0, 16.0, 16.0);
+    public static final VoxelShape BACK_CUSHION_MIDDLE = Block.box(0.0, 0.0, 11.0, 16.0, 16.0, 15.0);
     public static final VoxelShape BACK_CUSHION_LEFT = Block.box(0.0, 0.0, 11.0, 15.0, 16.0, 15.0);
     public static final VoxelShape BACK_CUSHION_RIGHT = Block.box(1.0, 0.0, 11.0, 16.0, 16.0, 15.0);
 
@@ -57,7 +57,7 @@ public class Sofa extends SeatBlock implements SimpleWaterloggedBlock {
     public static final VoxelShape MIDDLE_SOUTH = JFShapeHelper.rotateShape(MIDDLE, Direction.SOUTH);
     public static final VoxelShape MIDDLE_WEST = JFShapeHelper.rotateShape(MIDDLE, Direction.WEST);
 
-    public static final VoxelShape OUTER = Shapes.or(BASE, BACK, BACK_CUSHION_MIDDLE, BACK_CUSHION_O_CORNER);
+    public static final VoxelShape OUTER = Shapes.or(BASE, BACK_CUSHION_O_CORNER);
     public static final VoxelShape OUTER_EAST = JFShapeHelper.rotateShape(OUTER, Direction.EAST);
     public static final VoxelShape OUTER_SOUTH = JFShapeHelper.rotateShape(OUTER, Direction.SOUTH);
     public static final VoxelShape OUTER_WEST = JFShapeHelper.rotateShape(OUTER, Direction.WEST);
