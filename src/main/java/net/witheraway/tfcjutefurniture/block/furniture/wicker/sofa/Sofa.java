@@ -10,13 +10,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -24,16 +21,27 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.witheraway.tfcjutefurniture.JuteFurnitureTFC;
-import net.witheraway.tfcjutefurniture.block.furniture.SeatBlock;
+import net.witheraway.tfcjutefurniture.block.furniture.FurnitureBlock;
 import net.witheraway.tfcjutefurniture.entity.SeatEntity;
 
 import java.util.EnumMap;
 import java.util.Map;
 
-public class Sofa extends SeatBlock {
+public class Sofa extends FurnitureBlock {
     private static final Map<Direction, VoxelShape> SHAPES = new EnumMap(Direction.class);
     public static final DirectionProperty FACING;
-    private static final VoxelShape SHAPE;
+
+    public static final VoxelShape BASE = Block.box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0);
+    public static final VoxelShape BACK = Block.box(0.0, 0.0, 15.0, 16.0, 16.0, 16.0);
+    public static final VoxelShape BACK_CUSHION = Block.box(1.0, 0.0, 11.0, 15.0, 16.0, 15.0);
+    public static final VoxelShape BACK_CUSHION_MIDDLE = Block.box(0.0, 0.0, 11.0, 16.0, 16.0, 15.0);
+    public static final VoxelShape BACK_CUSHION_LEFT = Block.box(0.0, 0.0, 11.0, 15.0, 16.0, 15.0);
+    public static final VoxelShape BACK_CUSHION_RIGHT = Block.box(1.0, 0.0, 11.0, 16.0, 16.0, 15.0);
+
+    public static final VoxelShape ARM_L = Block.box(0.0, 0.0, 0.0, 3.0, 9.0, 16.0);
+    public static final VoxelShape ARM_R = Block.box(13.0, 0.0, 0.0, 16.0, 9.0, 16.0);
+
+    public static final VoxelShape SINGLE = Shapes.or(BASE, BACK, BACK_CUSHION, ARM_R, ARM_L);
 
     protected void runCalculation(VoxelShape shape) {
         Direction[] var2 = Direction.values();
@@ -53,7 +61,7 @@ public class Sofa extends SeatBlock {
     public Sofa(Properties properties) {
         super(properties);
         this.registerDefaultState((this.stateDefinition.any()).setValue(FACING, Direction.NORTH));
-        this.runCalculation(SHAPE);
+        this.runCalculation(SINGLE);
     }
 
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player playerEntity, InteractionHand hand, BlockHitResult hitResult) {
@@ -99,12 +107,6 @@ public class Sofa extends SeatBlock {
 
     static {
         FACING = HorizontalDirectionalBlock.FACING;
-        SHAPE = Shapes.or(Block.box(3.0, 0.0, 0.0, 14.0, 6.0, 13.0), //Base
-                new VoxelShape[]{Block.box(0.0, 0.0, 0.0, 3.0, 9.0, 16.0), //Arm west
-                        Block.box(13.0, 0.0, 0.0, 16.0, 9.0, 16.0), //Arm east
-                        Block.box(1.0, 0.0, 11.0, 15.0, 16.0, 15.0), //Back cushion
-                        Block.box(0.0, 0.0, 15.0, 16.0, 16.0, 16.0) //Back
-        }
-        );
     }
+
 }

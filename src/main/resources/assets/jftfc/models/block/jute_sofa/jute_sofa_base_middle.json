@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "tfc:block/burlap",
-		"1": "jftfc:wicker_bordered",
+		"1": "jftfc:block/bordered_wicker",
 		"particle": "tfc:block/burlap"
 	},
 	"elements": [
