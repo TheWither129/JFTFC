@@ -84,41 +84,41 @@
     },
     "facing=south,part=inner_right": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_i_corner",
-      "y": 270
+      "y" : 180
     },
     "facing=west,part=inner_right": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_i_corner",
-      "y": 90
+      "y": 270
     },
     "facing=north,part=outer_left": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner",
-      "y": 90
+      "y": 270
     },
     "facing=east,part=outer_left": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner"
     },
     "facing=south,part=outer_left": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner",
-      "y": 270
+      "y": 90
     },
     "facing=west,part=outer_left": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner",
       "y": 180
     },
     "facing=north,part=outer_right": {
-      "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner",
-      "y": 180
+      "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner"
     },
     "facing=east,part=outer_right": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner",
-      "y": 270
+      "y": 90
     },
     "facing=south,part=outer_right": {
-      "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner"
+      "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner",
+      "y" : 180
     },
     "facing=west,part=outer_right": {
       "model": "jftfc:block/jute_sofa/jute_sofa_base_o_corner",
-      "y": 90
+      "y": 270
     }
   }
 }

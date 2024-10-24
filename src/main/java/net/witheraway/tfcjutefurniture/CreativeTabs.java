@@ -43,6 +43,7 @@ public final class CreativeTabs {
         accept(out, JFTFCBlocks.DARKWOOD_PLANKS);
         accept(out, JFTFCBlocks.WICKER_OTTOMAN);
         accept(out, JFTFCBlocks.WICKER_SOFA);
+        accept(out, JFTFCBlocks.WICKER_END_TABLE);
         JFTFCBlocks.WILD_CROPS.values().forEach(wild_crop ->accept(out, wild_crop));
     }
 

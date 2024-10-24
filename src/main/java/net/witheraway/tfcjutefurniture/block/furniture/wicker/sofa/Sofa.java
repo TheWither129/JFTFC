@@ -36,10 +36,10 @@ public class Sofa extends SeatBlock implements SimpleWaterloggedBlock {
 
     public static final VoxelShape BASE = Block.box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0);
     public static final VoxelShape BACK = Block.box(0.0, 0.0, 15.0, 16.0, 16.0, 16.0);
-    public static final VoxelShape BACK_I_CORNER = Block.box(0.0, 0.0, 0.0, 1.0, 16.0, 16.0);
+    public static final VoxelShape BACK_I_CORNER = Block.box(15.0, 0.0, 0.0, 16.0, 16.0, 16.0);
     public static final VoxelShape BACK_CUSHION = Block.box(1.0, 0.0, 11.0, 15.0, 16.0, 15.0);
-    public static final VoxelShape BACK_CUSHION_I_CORNER = Block.box(1.0, 0.0, 0.0, 5.0, 16.0, 11.0);
-    public static final VoxelShape BACK_CUSHION_O_CORNER = Block.box(0.0, 0.0, 11.0, 5.0, 16.0, 16.0);
+    public static final VoxelShape BACK_CUSHION_I_CORNER = Block.box(11.0, 0.0, 0.0, 15.0, 16.0, 11.0);
+    public static final VoxelShape BACK_CUSHION_O_CORNER = Block.box(11.0, 0.0, 11.0, 16.0, 16.0, 16.0);
     public static final VoxelShape BACK_CUSHION_MIDDLE = Block.box(0.0, 0.0, 11.0, 16.0, 16.0, 15.0);
     public static final VoxelShape BACK_CUSHION_LEFT = Block.box(0.0, 0.0, 11.0, 15.0, 16.0, 15.0);
     public static final VoxelShape BACK_CUSHION_RIGHT = Block.box(1.0, 0.0, 11.0, 16.0, 16.0, 15.0);

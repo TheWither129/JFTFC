@@ -15,6 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.witheraway.tfcjutefurniture.JuteFurnitureTFC;
 import net.witheraway.tfcjutefurniture.block.furniture.SeatBlock;
+import net.witheraway.tfcjutefurniture.block.furniture.wicker.EndTable;
 import net.witheraway.tfcjutefurniture.block.furniture.wicker.sofa.Ottoman;
 import net.witheraway.tfcjutefurniture.block.furniture.wicker.sofa.Sofa;
 import net.witheraway.tfcjutefurniture.item.JFTFCItems;
@@ -43,6 +44,8 @@ public class JFTFCBlocks {
             () -> new Ottoman(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final RegistryObject<Block> WICKER_SOFA = registerBlock("wicker_sofa",
             () -> new Sofa(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final RegistryObject<Block> WICKER_END_TABLE = registerBlock("wicker_end_table",
+            () -> new EndTable(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
 
     public static final Map<JFTFCCrop, RegistryObject<Block>> CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("crop/" + crop.name(), crop::create));
     public static final Map<JFTFCCrop, RegistryObject<Block>> DEAD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("dead_crop/" + crop.name(), crop::createDead));
