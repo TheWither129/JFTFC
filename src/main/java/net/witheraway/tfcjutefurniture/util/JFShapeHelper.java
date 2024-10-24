@@ -7,7 +7,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-public class ShapeHelper {
+public final class JFShapeHelper {
     public static VoxelShape rotateShape(VoxelShape source, Direction direction) {
         AtomicReference<VoxelShape> newShape = new AtomicReference<>(Shapes.empty());
         source.forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) -> {
