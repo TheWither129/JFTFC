@@ -38,12 +38,13 @@ public final class CreativeTabs {
     }
     public static void fillJFTFCblocksTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output out) {
         accept(out, JFTFCBlocks.WICKER_BLOCK);
-        accept(out, JFTFCBlocks.COREWOOD_LOGS);
         accept(out, JFTFCBlocks.FINEWOOD_PLANKS);
         accept(out, JFTFCBlocks.DARKWOOD_PLANKS);
+        accept(out, JFTFCBlocks.WICKER_FOOTSTOOL);
         accept(out, JFTFCBlocks.WICKER_OTTOMAN);
         accept(out, JFTFCBlocks.WICKER_SOFA);
         accept(out, JFTFCBlocks.WICKER_END_TABLE);
+        accept(out, JFTFCBlocks.JUTE_CURTAIN_BLUE);
         JFTFCBlocks.WILD_CROPS.values().forEach(wild_crop ->accept(out, wild_crop));
     }
 

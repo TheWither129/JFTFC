@@ -3,19 +3,23 @@ package net.witheraway.tfcjutefurniture.block;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.registry.RegistrationHelpers;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.witheraway.tfcjutefurniture.JuteFurnitureTFC;
+import net.witheraway.tfcjutefurniture.block.furniture.Curtain;
 import net.witheraway.tfcjutefurniture.block.furniture.SeatBlock;
 import net.witheraway.tfcjutefurniture.block.furniture.wicker.EndTable;
+import net.witheraway.tfcjutefurniture.block.furniture.wicker.sofa.Footstool;
 import net.witheraway.tfcjutefurniture.block.furniture.wicker.sofa.Ottoman;
 import net.witheraway.tfcjutefurniture.block.furniture.wicker.sofa.Sofa;
 import net.witheraway.tfcjutefurniture.item.JFTFCItems;
@@ -46,6 +50,10 @@ public class JFTFCBlocks {
             () -> new Sofa(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final RegistryObject<Block> WICKER_END_TABLE = registerBlock("wicker_end_table",
             () -> new EndTable(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final RegistryObject<Block> WICKER_FOOTSTOOL = registerBlock("wicker_footstool",
+            () -> new Footstool(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final RegistryObject<Block> JUTE_CURTAIN_BLUE = registerBlock("jute_curtain/blue",
+            () -> new Curtain(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY).noCollission()));
 
     public static final Map<JFTFCCrop, RegistryObject<Block>> CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("crop/" + crop.name(), crop::create));
     public static final Map<JFTFCCrop, RegistryObject<Block>> DEAD_CROPS = Helpers.mapOfKeys(JFTFCCrop.class, crop -> registerNoItem("dead_crop/" + crop.name(), crop::createDead));
@@ -66,7 +74,6 @@ public class JFTFCBlocks {
     public static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return JFTFCItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
-
 
     private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> blockSupplier)
     {

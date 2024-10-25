@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,vertical=single": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top"
+    },
+    "facing=east,vertical=single": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top",
+      "y": 90
+    },
+    "facing=south,vertical=single": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top",
+      "y": 180
+    },
+    "facing=west,vertical=single": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top",
+      "y": 270
+    },
+    "facing=north,vertical=top": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top"
+    },
+    "facing=east,vertical=top": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top",
+      "y": 90
+    },
+    "facing=south,vertical=top": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top",
+      "y": 180
+    },
+    "facing=west,vertical=top": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_top",
+      "y": 270
+    },
+    "facing=north,vertical=middle": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_middle"
+    },
+    "facing=east,vertical=middle": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_middle",
+      "y": 90
+    },
+    "facing=south,vertical=middle": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_middle",
+      "y": 180
+    },
+    "facing=west,vertical=middle": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_middle",
+      "y": 270
+    },
+    "facing=north,vertical=bottom": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_bottom"
+    },
+    "facing=east,vertical=bottom": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_bottom",
+      "y": 90
+    },
+    "facing=south,vertical=bottom": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_bottom",
+      "y": 180
+    },
+    "facing=west,vertical=bottom": {
+      "model": "jftfc:block/jute_curtain/blue_curtain_bottom",
+      "y": 270
+    }
+  }
+}
